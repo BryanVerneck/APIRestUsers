@@ -1,4 +1,4 @@
-package com.example.restservice.User;
+package com.example.restservice.user;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
-package com.example.restservice.User.List;
+package com.example.restservice.user.api.list;
 
-import com.example.restservice.User.Entity.User;
-import com.example.restservice.User.Repository.UserRepository;
+import com.example.restservice.user.domain.user.User;
+import com.example.restservice.user.domain.user.UserRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
