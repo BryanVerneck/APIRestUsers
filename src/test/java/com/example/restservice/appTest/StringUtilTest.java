@@ -11,7 +11,6 @@ public class StringUtilTest {
     @Test
     public void testIsEmpty(){
         boolean b;
-
         b = StringUtil.isEmpty("abc");
         Assert.assertFalse(b);
 

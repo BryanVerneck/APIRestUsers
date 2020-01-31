@@ -13,7 +13,7 @@ import java.util.List;
 @RequestMapping("/users")
 @Api(value= "API rest users")
 @CrossOrigin("*")
-public class ListController {
+public class UserListController {
 
     @Autowired
     private UserRepository userRepository;
@@ -27,6 +27,7 @@ public class ListController {
     @GetMapping("/{id}")
     @ApiOperation(value = "Retorna o usuário especificado")
     public User ListUserById(@PathVariable(value = "id") long id){
+        User user = new User();
         return userRepository.findById(id);
     }
 

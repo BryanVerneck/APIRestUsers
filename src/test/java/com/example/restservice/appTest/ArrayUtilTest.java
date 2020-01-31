@@ -1,14 +1,13 @@
 package com.example.restservice.appTest;
 
+import com.example.restservice.app.ArrayUtil;
 import org.junit.Assert;
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
-import sun.security.util.ArrayUtil;
 
 public class ArrayUtilTest {
-/*
+
     @Test
-    @Ignore
     public void testReverse(){
         Integer[] numbers = { 1, 2, 3, 4, 5 };
         ArrayUtil.reverse(numbers);
@@ -17,5 +16,4 @@ public class ArrayUtilTest {
 
     }
 
- */
 }
