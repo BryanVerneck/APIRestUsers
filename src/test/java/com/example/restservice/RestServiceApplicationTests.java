@@ -6,10 +6,11 @@ import javafx.application.Application;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootTest
 @SpringBootConfiguration
-class RestServiceApplicationTests {
+class RestServiceApplicationTests extends SpringBootServletInitializer {
 
 	@Test
 	void contextLoads() {

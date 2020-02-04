@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ ArrayUtilTest.class , StringUtilTest.class })
+@SuiteClasses({ ArrayUtilTest.class , StringTest.class })
 public class SuiteTest {
 
 }
