@@ -14,7 +14,9 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
-import java.util.Collection;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class StringTest {
@@ -28,22 +30,27 @@ public class StringTest {
     @Autowired
     private UserRepository repository;
 
+    @Mock
+    private UserRepository userRepository;
+
+    @org.junit.Test
+    public void returnUserCount(){
+        when(userRepository.count()).thenReturn((long) 100);
+        System.out.println(userRepository.count());
+    }
+
     @org.junit.Test
     public void returnUser(){
-//        User user1 = Mockito.mock(User.class);
-        Mockito.when(user.getUserName()).thenReturn("test");
+        User user1 = mock(User.class);
+        when(user1.getUserName()).thenReturn("Pedro");
+        System.out.println(user1.getUserName());
     }
 
     @org.junit.Test
     public void ArraySize100(){
-        ArrayList<Integer> lista1 = new ArrayList<>();
-        lista1.add(1);
-        System.out.println("index: " + lista1.get(0));
-        System.out.println(lista.size());
-//        Mockito.when(lista.add(10)).thenReturn(Assert.assertEquals(Mockito.any(), lista.get(0)));
-        System.out.println("index: " + lista.get(0));
-        Mockito.when(lista.size()).thenReturn(100);
-        System.out.println(lista.size());
+        System.out.println("Tamanho da lista: " + lista.size());
+        when(lista.size()).thenReturn(100);
+        System.out.println("Tamanho da lista: " + lista.size());
     }
 
     @Test
@@ -94,7 +101,7 @@ public class StringTest {
 
     @After
     public void after(){
-        System.out.println("Teste finalizado");
+        System.out.println("Teste finalizado.");
     }
 
 }

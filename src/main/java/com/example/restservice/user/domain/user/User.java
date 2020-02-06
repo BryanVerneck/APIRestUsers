@@ -8,6 +8,8 @@ import lombok.Getter;
 
 @Entity
 @Table(name="TB_USER")
+@Setter
+@Getter
 public class User implements Serializable {
 
     public User() {
@@ -21,27 +23,20 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    @Getter
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Getter @Setter
     private long id;
 
-    @Getter @Setter
     private String userName;
 
-    @Getter @Setter
     private String firstName;
 
-    @Getter @Setter
     private String lastName;
 
-    @Getter @Setter
     private LocalDate birthDate;
 
-    @Getter @Setter
     private String email;
 
 }
