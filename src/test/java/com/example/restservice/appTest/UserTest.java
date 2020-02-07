@@ -3,14 +3,12 @@ package com.example.restservice.appTest;
 import com.example.restservice.RestServiceApplication;
 import com.example.restservice.user.domain.user.User;
 import org.assertj.core.api.Assertions;
-import org.json.JSONException;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import org.mockito.Mock;
 
-import org.skyscreamer.jsonassert.JSONAssert;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.boot.test.web.client.TestRestTemplate;
@@ -23,11 +21,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import sun.rmi.runtime.Log;
-
-import java.net.URI;
 import java.time.LocalDate;
-import java.util.Date;
 
 import static org.junit.Assert.assertTrue;
 
@@ -52,9 +46,16 @@ public class UserTest {
     }
 
     @Test
+    public void returnString(){
+        String text = "usuario";
+        Assert.assertEquals("usuario", "usuario");
+
+    }
+
+    @Test
     public void listUsersWhenNameAndPasswordAreIncorrectShouldReturnStatusCode401() {
         restTemplate = restTemplate.withBasicAuth("1", "1");
-        ResponseEntity<String> response = restTemplate.getForEntity("/users/", String.class);
+        ResponseEntity<String> response = restTemplate.getForEntity("/users", String.class);
         Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(401);
     }
 
@@ -62,11 +63,8 @@ public class UserTest {
     public void addUser(){
         LocalDate date = LocalDate.now();
         User user = new User(1 ,"teste", "teste", "teste", date, "teste@gmail.com");
-
         HttpEntity<User> entity = new HttpEntity<User>(user, headers);
-
         ResponseEntity<String> response = restTemplate.exchange(createUrlWithPort("/users"), HttpMethod.POST, entity, String.class);
-
         String actual = response.getHeaders().get(HttpHeaders.LOCATION).get(0);
 
         assertTrue(actual.contains("/users"));

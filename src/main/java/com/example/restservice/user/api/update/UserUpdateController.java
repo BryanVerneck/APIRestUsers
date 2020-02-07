@@ -25,12 +25,12 @@ public class UserUpdateController {
 
     @PutMapping("/{id}")
     @ApiOperation(value = "Atualiza o email do usuário")
-    public ResponseEntity<User> updateUserEmail(@PathVariable(value = "id") Long id, @RequestBody User user) throws Exception{
+    public ResponseEntity<String> updateUserEmail(@PathVariable(value = "id") Long id, @RequestBody User user) throws Exception{
         User userData = userRepository.findById(id)
                 .orElseThrow(() -> new Exception("Employee not found for this id :: " + id));
         userData.setEmail(user.getEmail());
         final User updatedUser = userRepository.save(userData);
-        return ResponseEntity.ok(updatedUser);
+        return ResponseEntity.ok(updatedUser.getEmail());
     }
 
 }
