@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 @Api(value= "API rest users")
@@ -20,7 +22,7 @@ public class UserCreateController {
     @PostMapping
     @ApiOperation(value = "Adiciona um usuário")
     @ResponseStatus(HttpStatus.OK)
-    public User SaveUser(@RequestBody User user) {
+    public User SaveUser(@Valid @RequestBody User user) { //UserCreateRequest
         return userRepository.save(user);
     }
 }

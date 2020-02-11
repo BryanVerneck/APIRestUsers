@@ -1,4 +1,6 @@
 package com.example.restservice.user.api.create;
 
-public class UserCreateResponse {
+import com.example.restservice.user.api.common.UsersDto;
+
+public class UserCreateResponse extends UsersDto {
 }
