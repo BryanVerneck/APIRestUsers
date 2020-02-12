@@ -4,6 +4,7 @@ import com.example.restservice.user.domain.user.User;
 import com.example.restservice.user.domain.user.UserRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import jdk.nashorn.internal.ir.annotations.Ignore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,9 +28,9 @@ public class UserUpdateController {
     @ApiOperation(value = "Atualiza o email do usuário")
     public ResponseEntity<String> updateUserEmail(@PathVariable(value = "id") Long id, @RequestBody User user) throws Exception{
         User userData = userRepository.findById(id)
-                .orElseThrow(() -> new Exception("Employee not found for this id :: " + id));
+                .orElseThrow(() -> new Exception("Employee not found for this id : " + id));
         userData.setEmail(user.getEmail());
-        final User updatedUser = userRepository.save(userData);
+        User updatedUser = userRepository.save(userData);
         return ResponseEntity.ok(updatedUser.getEmail());
     }
 

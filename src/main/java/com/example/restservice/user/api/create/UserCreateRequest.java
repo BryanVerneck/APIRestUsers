@@ -9,9 +9,16 @@ public class UserCreateRequest extends UsersDto {
 
     @NotNull
     private String userName;
+
+    @NotNull
     private String firstName;
+
+    @NotNull
     private String lastName;
+
     private Date birthDate;
+
+    @NotNull
     private String email;
 
 }

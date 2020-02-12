@@ -14,7 +14,7 @@ import javax.validation.Valid;
 @RequestMapping("/users")
 @Api(value= "API rest users")
 @CrossOrigin("*")
-public class UserCreateController {
+public class UserCreateController{
 
     @Autowired
     private UserRepository userRepository;
@@ -22,7 +22,11 @@ public class UserCreateController {
     @PostMapping
     @ApiOperation(value = "Adiciona um usuário")
     @ResponseStatus(HttpStatus.OK)
-    public User SaveUser(@Valid @RequestBody User user) { //UserCreateRequest
-        return userRepository.save(user);
+    public User SaveUser(@Valid @RequestBody User user) throws Exception{ //UserCreateRequest
+        try{
+            return userRepository.save(user);
+        }catch (Exception e){
+            throw new Exception("Todos os dados devem ser preenchidos");
+        }
     }
 }

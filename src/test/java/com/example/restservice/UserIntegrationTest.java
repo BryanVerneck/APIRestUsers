@@ -5,9 +5,12 @@ import com.example.restservice.user.domain.user.User;
 import com.example.restservice.user.domain.user.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import org.junit.runners.MethodSorters;
 import org.mockito.Mock;
 
 import org.mockito.Mockito;
@@ -29,12 +32,17 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 import static org.junit.Assert.assertTrue;
+import static org.springframework.http.HttpMethod.DELETE;
+import static org.springframework.http.HttpMethod.PUT;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = RestServiceApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class UserIntegrationTest {
 
     private User user, user1;
+
+    private static int cont;
 
     @Mock
     UserRepository userRepository;
@@ -49,8 +57,11 @@ public class UserIntegrationTest {
 
     @Before
     public void init(){
-        user = new User(1 ,"teste", "teste", "teste", null, "teste@gmail.com");
-        user1 = new User(2 ,null, "teste", "teste", null, "teste@gmail.com");
+        System.out.println("Iniciando teste " + cont + "...");
+        cont ++;
+        user = new User(1,"teste", "teste", "teste", null, "teste@gmail.com");
+        user1 = new User(2,null, "teste", "teste", null, "teste@gmail.com");
+        System.out.println("Teste finalizado.");
     }
 
     @TestConfiguration
@@ -85,17 +96,24 @@ public class UserIntegrationTest {
     @Test
     public void createUserAndReturnStatusCode200(){
         Mockito.when(userRepository.save(user)).thenReturn(user);
-        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:8080/users/", user, String.class);
+        ResponseEntity<User> response = restTemplate.postForEntity("http://localhost:8080/users/", user, User.class);
         Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
     }
 
-    /*
     @Test
+    @Ignore
     public void updateUserAndReturnStatusCode200(){
-        Mockito.when(userRepository.save(userRepository.findById(user.getId()))).thenReturn(user);
-        ResponseEntity<String> response = restTemplate.postForEntity("http://localhost:8080/users/{id}", user.getId(), String.class);
+        Mockito.when(userRepository.save(user)).thenReturn(user);
+        ResponseEntity<String> response = restTemplate.exchange("http://localhost:8080/users/{id}", PUT, null, String.class);
         Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
-    }*/
+    }
+
+    @Test
+    public void deleteUserAndReturnStatusCode200(){
+        Mockito.doNothing().when(userRepository).delete(user);
+        ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:8080/users/{id}", DELETE, null, String.class, 1);
+        Assertions.assertThat(exchange.getStatusCodeValue()).isEqualTo(200);
+    }
 
     private String createUrlWithPort(String uri) {
         return "http://localhost:" + port + uri;
