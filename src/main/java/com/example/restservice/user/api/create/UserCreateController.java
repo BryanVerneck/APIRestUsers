@@ -6,9 +6,12 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import java.net.URI;
 
 @RestController
 @RequestMapping("/users")
@@ -17,16 +20,15 @@ import javax.validation.Valid;
 public class UserCreateController{
 
     @Autowired
-    private UserRepository userRepository;
+    private UserCreateService userService;
 
     @PostMapping
     @ApiOperation(value = "Adiciona um usuário")
     @ResponseStatus(HttpStatus.OK)
-    public User SaveUser(@Valid @RequestBody User user) throws Exception{ //UserCreateRequest
-        try{
-            return userRepository.save(user);
-        }catch (Exception e){
-            throw new Exception("Todos os dados devem ser preenchidos");
-        }
+    public ResponseEntity<User> saveUser(@Valid @RequestBody User user) throws Exception{ //UserCreateRequest
+       user = userService.create(user);
+        URI path = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(user.getId()).toUri();
+        return ResponseEntity.created(path).body(user);
     }
+
 }

@@ -10,11 +10,9 @@ public class UserCreateService {
 
     @Autowired
     private UserRepository userRepository;
-/*
-    public UserCreateResponse create(UserCreateRequest request) {
 
-        User user = new User();
-        user.setEmail(request.getEmail());
+    public User create(User request) {
+        return userRepository.save(request);
+    }
 
-    }*/
 }

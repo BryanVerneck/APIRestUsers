@@ -97,7 +97,7 @@ public class UserIntegrationTest {
     public void createUserAndReturnStatusCode200(){
         Mockito.when(userRepository.save(user)).thenReturn(user);
         ResponseEntity<User> response = restTemplate.postForEntity("http://localhost:8080/users/", user, User.class);
-        Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
+        Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(201);
     }
 
     @Test
@@ -110,6 +110,7 @@ public class UserIntegrationTest {
 
     @Test
     public void deleteUserAndReturnStatusCode200(){
+
         Mockito.doNothing().when(userRepository).delete(user);
         ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:8080/users/{id}", DELETE, null, String.class, 1);
         Assertions.assertThat(exchange.getStatusCodeValue()).isEqualTo(200);

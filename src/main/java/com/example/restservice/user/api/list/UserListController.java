@@ -5,6 +5,7 @@ import com.example.restservice.user.domain.user.UserRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,19 +17,13 @@ import java.util.List;
 public class UserListController {
 
     @Autowired
-    private UserRepository userRepository;
+    private UserRepository service;
 
     @GetMapping
     @ApiOperation(value = "Retorna uma lista de usuários")
-    public List<User> listUsers(){
-        return userRepository.findAll();
-    }
-
-    @GetMapping("/{id}")
-    @ApiOperation(value = "Retorna o usuário especificado")
-    public User ListUserById(@PathVariable(value = "id") long id){
-        User user = new User();
-        return userRepository.findById(id);
+    public ResponseEntity<List<User>> listUsers(){
+        List<User> list = service.findAll();
+        return ResponseEntity.ok().body(list);
     }
 
 }

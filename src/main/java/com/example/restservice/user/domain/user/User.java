@@ -10,13 +10,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "user")
 @Entity
 @Table(name="TB_USER")
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -99,4 +99,5 @@ public class User implements Serializable {
 
     public User() {
     }
+
 }
