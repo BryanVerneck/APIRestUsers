@@ -8,3 +8,4 @@ public interface UserRepository extends MongoRepository<User, Long> {
     User findById(long id);
 
 }
+

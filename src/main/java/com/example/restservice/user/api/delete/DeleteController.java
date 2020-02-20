@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/users")
 @Api(value= "API rest users")
-@CrossOrigin("*")
 public class DeleteController {
 
     @Autowired
@@ -20,5 +19,7 @@ public class DeleteController {
     public void deleteUser(@PathVariable(value = "id") long id){
         userRepository.deleteById(id);
     }
+
+
 
 }

@@ -34,7 +34,8 @@ public class UserMapperTest {
     @Test
     public void givenDtoToUser_whenMaps_thenCorrect(){
         //given
-        UsersDto dto = new UsersDto(1,"teste@gmail.com", "teste", "teste", "test", null);
+        User user1 = new User(1,"teste", "teste", "teste", null, "teste@gmail.com");
+        UsersDto dto = new UsersDto(user1);
 
         //when
         User user = mapper.toUsers(dto);
