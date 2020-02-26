@@ -9,7 +9,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootTest
-@SpringBootConfiguration
 class RestServiceApplicationTests extends SpringBootServletInitializer {
 
 	@Test

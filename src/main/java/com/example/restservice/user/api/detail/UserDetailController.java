@@ -1,6 +1,7 @@
 package com.example.restservice.user.api.detail;
 
 import com.example.restservice.user.api.common.UsersDto;
+import com.example.restservice.user.common.exception.ObjectNotFoundException;
 import com.example.restservice.user.domain.user.User;
 import com.example.restservice.user.domain.user.UserRepository;
 import io.swagger.annotations.Api;
@@ -17,12 +18,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserDetailController {
 
     @Autowired
-    private UserRepository service;
+    private UserDetailService service;
 
     @GetMapping("/{id}")
     @ApiOperation(value = "Retorna o usuário especificado")
     public ResponseEntity<UsersDto> findUserById(@PathVariable(value = "id") long id){
-        User user = service.findById(id);
+        User user = service.findUserById(id);
         return ResponseEntity.ok().body(new UsersDto(user));
     }
 

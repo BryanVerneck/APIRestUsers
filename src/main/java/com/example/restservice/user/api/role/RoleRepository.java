@@ -1,5 +1,7 @@
 package com.example.restservice.user.api.role;
 
-public class RoleRepository {
+import org.springframework.data.mongodb.repository.MongoRepository;
+
+public interface RoleRepository extends MongoRepository<Role, Long>{
 
 }

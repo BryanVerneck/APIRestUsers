@@ -1,6 +1,7 @@
 package com.example.restservice.user.api.create;
 
 import com.example.restservice.logger.LoggingController;
+import com.example.restservice.user.api.common.UsersDto;
 import com.example.restservice.user.domain.user.User;
 import com.example.restservice.user.domain.user.UserRepository;
 import io.swagger.annotations.Api;

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice //Indica tratamento de requisições
 public class ExceptionHandler {
+
     @org.springframework.web.bind.annotation.ExceptionHandler(ObjectNotFoundException.class)
     public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request){
         HttpStatus status = HttpStatus.NOT_FOUND;
