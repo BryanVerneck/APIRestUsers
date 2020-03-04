@@ -1,8 +1,6 @@
 package com.example.restservice.usuarioBuilder;
 
-import com.example.restservice.user.domain.user.User;
-
-import java.util.Date;
+import com.example.restservice.domain.user.User;
 
 public class UserBuilder {
 
@@ -12,7 +10,7 @@ public class UserBuilder {
 
     public static UserBuilder generateUser(){
         UserBuilder builder = new UserBuilder();
-        builder.user = new User(1,"test01","test01","test01", null, "test01@gmail.com");
+        builder.user = new User(1L,"test01","test01","test01", null, "test01@gmail.com");
         return builder;
     }
 

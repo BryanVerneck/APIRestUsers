@@ -1,15 +1,14 @@
 package com.example.restservice.appTest;
 
 import com.example.restservice.app.StringUtil;
-import com.example.restservice.user.domain.user.User;
-import com.example.restservice.user.domain.user.UserRepository;
+import com.example.restservice.domain.user.User;
+import com.example.restservice.api.user.UserRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -70,7 +69,7 @@ public class StringTest {
         User user = new User();
 
         Assert.assertNotNull("failure - expected not null", user);
-        Assert.assertEquals(0, user.getId());
+        Assert.assertEquals(java.util.Optional.of(0), user.getId());
 
     }
 
