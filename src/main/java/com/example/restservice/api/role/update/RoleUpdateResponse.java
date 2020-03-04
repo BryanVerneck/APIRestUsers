@@ -1,15 +1,14 @@
-package com.example.restservice.api.role.detail;
+package com.example.restservice.api.role.update;
 
 import com.example.restservice.domain.role.Role;
 import lombok.Data;
 
 @Data
-public class RoleDetailResponse {
-
+public class RoleUpdateResponse {
     private long id;
     private String name;
 
-    public RoleDetailResponse(Role role) {
+    public RoleUpdateResponse(Role role){
         id = role.getId();
         name = role.getName();
     }

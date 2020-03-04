@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/users")
 @Api(value= "API rest users")
-public class DeleteController {
+public class UserDeleteController {
 
     @Autowired
     private UserDeleteService userDeleteService;
