@@ -18,7 +18,7 @@ public class UserListService {
         List<UserListResponse> listUsers = new ArrayList<>();
         List<User> users = repository.findAll();
         for(User u : users){
-            listUsers.add(new UserListResponse(u.getId(), u.getFirstName(), u.getLastName(), u.getEmail(), u.getUserName(), u.getBirthDate()));
+            listUsers.add(new UserListResponse(u.getId(), u.getFirstName(), u.getLastName(), u.getEmail(), u.getUserName(), u.getBirthDate(), u.getRole()));
         }
         return listUsers;
     }

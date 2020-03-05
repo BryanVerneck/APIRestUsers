@@ -30,7 +30,7 @@ public class UserDetailIntegrationTest {
 
     @Before
     public void init(){
-        user = new User(10L,"teste", "teste", "teste", null, "teste@gmail.com");
+        user = new User(10L,"teste", "teste", "teste", null, "teste@gmail.com", null);
         userRepository.save(user);
         System.out.println("Teste finalizado.");
     }

@@ -53,8 +53,8 @@ public class UserIntegrationTest {
     public void init(){
         System.out.println("Iniciando teste " + cont + "...");
         cont ++;
-        user = new User(1L,"teste", "teste", "teste", null, "teste@gmail.com");
-        user1 = new User(2L,null, "teste", "teste", null, "teste@gmail.com");
+        user = new User(1L,"teste", "teste", "teste", null, "teste@gmail.com", null);
+        user1 = new User(2L,null, "teste", "teste", null, "teste@gmail.com", null);
         System.out.println("Teste finalizado.");
     }
 

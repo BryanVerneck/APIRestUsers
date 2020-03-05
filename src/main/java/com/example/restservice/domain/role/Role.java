@@ -1,12 +1,12 @@
 package com.example.restservice.domain.role;
 
+import com.example.restservice.domain.privilege.Privilege;
+import com.example.restservice.domain.user.User;
 import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Collection;
 
 @Data
 @Entity
@@ -21,4 +21,7 @@ public class Role {
     @NotNull
     private String name;
 
+    public Role(String name) {
+        this.name = name;
+    }
 }

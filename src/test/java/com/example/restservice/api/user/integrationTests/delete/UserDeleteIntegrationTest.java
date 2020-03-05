@@ -38,7 +38,7 @@ public class UserDeleteIntegrationTest {
 
     @Before
     public void init(){
-        user = new User(1L,"teste", "teste", "teste", null, "teste@gmail.com");
+        user = new User(1L,"teste", "teste", "teste", null, "teste@gmail.com", null);
         System.out.println("Teste finalizado.");
     }
 

@@ -14,9 +14,9 @@ public class UserCreateController{
     @Autowired
     private UserCreateService userService;
 
-    @PostMapping
-    public UserCreateResponse createUser(@Valid @RequestBody UserCreateRequest user){
-        return userService.create(user.transformaParaObjeto());
+    @PostMapping("/{roleId}")
+    public UserCreateResponse createUser(/*@PathVariable Long roleId, */@Valid @RequestBody UserCreateRequest user){
+        return userService.create(/*roleId, */user.transformaParaObjeto());
    }
 
 }

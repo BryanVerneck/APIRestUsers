@@ -1,5 +1,6 @@
 package com.example.restservice.api.user.list;
 
+import com.example.restservice.domain.role.Role;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -15,5 +16,6 @@ public class UserListResponse {
     private String email;
     private String userName;
     private LocalDate birthDate;
+    private Role role;
 
 }

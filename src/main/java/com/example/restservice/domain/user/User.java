@@ -4,7 +4,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.Collection;
+import java.util.Set;
 
+import com.example.restservice.domain.role.Role;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,7 +39,11 @@ public class User{
     @NotNull
     private String email;
 
+    @OneToOne
+    private Role role;
+
     public User(long id){
         this.id = id;
     }
+
 }
