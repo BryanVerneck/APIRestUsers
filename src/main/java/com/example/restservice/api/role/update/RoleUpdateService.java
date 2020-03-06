@@ -1,7 +1,6 @@
 package com.example.restservice.api.role.update;
 
-import com.example.restservice.api.role.RoleRepository;
-import com.example.restservice.api.user.update.UserUpdateResponse;
+import com.example.restservice.domain.role.RoleRepository;
 import com.example.restservice.domain.role.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

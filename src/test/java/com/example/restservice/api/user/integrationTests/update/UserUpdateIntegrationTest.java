@@ -1,7 +1,7 @@
 package com.example.restservice.api.user.integrationTests.update;
 
 import com.example.restservice.domain.user.User;
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Ignore;
 import org.junit.Test;

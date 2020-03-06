@@ -1,6 +1,8 @@
 package com.example.restservice.api.user.detail;
 
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
+import com.example.restservice.common.exception.ObjectNotFoundException;
+import com.example.restservice.domain.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +13,11 @@ public class UserDetailService {
     private UserRepository userRepository;
 
     public UserDetailResponse findUser(Long id){
-        return new UserDetailResponse(userRepository.findById(id).get());
+        User user = userRepository.findById(id).get();
+        if(user.getUserName() == null){
+            throw new ObjectNotFoundException("User not found for ID: " + id);
+        }
+        return new UserDetailResponse(user);
     }
 
 }

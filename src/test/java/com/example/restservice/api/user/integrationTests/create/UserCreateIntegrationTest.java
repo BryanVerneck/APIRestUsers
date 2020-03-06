@@ -2,7 +2,7 @@ package com.example.restservice.api.user.integrationTests.create;
 
 import com.example.restservice.RestServiceApplication;
 import com.example.restservice.domain.user.User;
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -56,6 +56,6 @@ public class UserCreateIntegrationTest {
     public void createUserAndReturnStatusCode201(){
         Mockito.when(userRepository.save(user)).thenReturn(user);
         ResponseEntity<User> response = restTemplate.postForEntity("http://localhost:8080/users/", user, User.class);
-        Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(201);
+        Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
     }
 }

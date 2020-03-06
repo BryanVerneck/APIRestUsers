@@ -1,7 +1,7 @@
 package com.example.restservice.api.role.list;
 
 import com.example.restservice.domain.role.Role;
-import com.example.restservice.api.role.RoleRepository;
+import com.example.restservice.domain.role.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.ArrayList;

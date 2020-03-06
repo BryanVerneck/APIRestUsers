@@ -2,7 +2,7 @@ package com.example.restservice.api.user.integrationTests;
 
 import com.example.restservice.RestServiceApplication;
 import com.example.restservice.domain.user.User;
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.FixMethodOrder;

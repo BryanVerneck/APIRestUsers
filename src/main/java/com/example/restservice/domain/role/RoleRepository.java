@@ -1,10 +1,7 @@
-package com.example.restservice.api.role;
+package com.example.restservice.domain.role;
 
-import com.example.restservice.domain.role.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
-
-    Role findByName(String role_admin);
 
 }

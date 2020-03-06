@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping(value = "/users")
 @Api(value= "API rest users")
 @CrossOrigin("*")
 public class UserCreateController{
@@ -15,8 +15,8 @@ public class UserCreateController{
     private UserCreateService userService;
 
     @PostMapping("/{roleId}")
-    public UserCreateResponse createUser(/*@PathVariable Long roleId, */@Valid @RequestBody UserCreateRequest user){
-        return userService.create(/*roleId, */user.transformaParaObjeto());
+    public UserCreateResponse createUser(@PathVariable Long roleId, @Valid @RequestBody UserCreateRequest user){
+        return userService.create(roleId, user);
    }
 
 }

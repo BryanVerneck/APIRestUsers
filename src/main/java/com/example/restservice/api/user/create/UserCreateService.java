@@ -1,9 +1,13 @@
 package com.example.restservice.api.user.create;
 
+import com.example.restservice.domain.role.Role;
+import com.example.restservice.domain.role.RoleRepository;
 import com.example.restservice.domain.user.User;
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class UserCreateService {
@@ -11,9 +15,14 @@ public class UserCreateService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserCreateResponse create(/*Long roleId, */User request) {
-//        request.getRole().setId(roleId);
-        return new UserCreateResponse(userRepository.save(request));
+    @Autowired
+    private RoleRepository roleRepository;
+
+    public UserCreateResponse create(Long roleId, UserCreateRequest request) {
+        Optional<Role> role = roleRepository.findById(roleId);
+        User user = request.transformaParaObjeto();
+        user.setRole(role.get());
+        return new UserCreateResponse(userRepository.save(user));
     }
 
 }

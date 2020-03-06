@@ -7,7 +7,7 @@ import lombok.Data;
 @Data
 public class RoleCreateRequest {
 
-    @ApiModelProperty(example = "Admin")
+    @ApiModelProperty(example = "ADMIN")
     private String name;
 
     public Role transformaParaObjeto(){

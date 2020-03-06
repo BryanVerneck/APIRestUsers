@@ -2,7 +2,7 @@ package com.example.restservice.appTest;
 
 import com.example.restservice.app.StringUtil;
 import com.example.restservice.domain.user.User;
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

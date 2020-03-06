@@ -1,7 +1,7 @@
 package com.example.restservice.api.user.integrationTests.detail;
 
 import com.example.restservice.domain.user.User;
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -41,4 +41,5 @@ public class UserDetailIntegrationTest {
        ResponseEntity<String> response = restTemplate.getForEntity("http://localhost:8080/users/{id}", String.class, user.getId());
        Assertions.assertThat(response.getStatusCodeValue()).isEqualTo(200);
    }
+
 }

@@ -1,17 +1,21 @@
 package com.example.restservice.api.role.create;
 
 import com.example.restservice.domain.role.Role;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 @Data
 public class RoleCreateResponse {
 
+    @ApiModelProperty(example = "1")
     private long id;
-    private String userName;
+
+    @ApiModelProperty(example = "ADMIN")
+    private String name;
 
     public RoleCreateResponse(Role role) {
         id = role.getId();
-        userName = role.getName();
+        name = role.getName();
     }
 
 }

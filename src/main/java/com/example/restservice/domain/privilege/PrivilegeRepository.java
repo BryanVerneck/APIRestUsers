@@ -1,6 +1,4 @@
-package com.example.restservice.api.role;
-
-import com.example.restservice.domain.privilege.Privilege;
+package com.example.restservice.domain.privilege;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

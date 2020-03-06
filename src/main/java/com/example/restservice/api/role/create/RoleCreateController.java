@@ -18,7 +18,7 @@ public class RoleCreateController {
     @ApiOperation(value = "Adiciona um cargo")
     @ResponseStatus(HttpStatus.OK)
     public RoleCreateResponse saveRole(@Valid @RequestBody RoleCreateRequest role){
-        return roleService.create(role.transformaParaObjeto());
+        return roleService.create(role);
     }
 
 }

@@ -2,7 +2,7 @@ package com.example.restservice.api.user.integrationTests.delete;
 
 import com.example.restservice.RestServiceApplication;
 import com.example.restservice.domain.user.User;
-import com.example.restservice.api.user.UserRepository;
+import com.example.restservice.domain.user.UserRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,4 +48,5 @@ public class UserDeleteIntegrationTest {
         ResponseEntity<String> exchange = restTemplate.exchange("http://localhost:8080/users/{id}", DELETE, null, String.class, 1);
         Assertions.assertThat(exchange.getStatusCodeValue()).isEqualTo(200);
     }
+
 }

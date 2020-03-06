@@ -1,6 +1,5 @@
 package com.example.restservice.api.user.create;
 
-import com.example.restservice.domain.role.Role;
 import com.example.restservice.domain.user.User;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -29,10 +28,8 @@ public class UserCreateRequest{
     @ApiModelProperty(example = "Test@gmail.com")
     private String email;
 
-    private Role role;
-
     public User transformaParaObjeto(){
-        return new User(null, userName, firstName, lastName, birthDate, email, role);
+        return new User(null, userName, firstName, lastName, birthDate, email, null);
     }
 
 }

@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 @Api(value= "API rest users")
@@ -16,7 +18,7 @@ public class UserDetailController {
 
     @GetMapping("/{id}")
     @ApiOperation(value = "Retorna o usuário especificado")
-    public UserDetailResponse findUserById(@PathVariable Long id){
+    public UserDetailResponse findUserById(@Valid @PathVariable Long id){
         return service.findUser(id);
     }
 

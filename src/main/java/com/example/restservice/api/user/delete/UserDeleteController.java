@@ -5,6 +5,8 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 @Api(value= "API rest users")
@@ -15,7 +17,7 @@ public class UserDeleteController {
 
     @DeleteMapping("/{id}")
     @ApiOperation(value = "Deleta um usuário")
-    public void deleteUser(@PathVariable(value = "id") Long id){
+    public void deleteUser(@Valid @PathVariable(value = "id") Long id){
         userDeleteService.delete(id);
     }
 
