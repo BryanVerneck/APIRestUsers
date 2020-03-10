@@ -2,11 +2,10 @@ package com.example.restservice.api.user.unitTests.delete;
 
 import com.example.restservice.domain.user.User;
 import com.example.restservice.domain.user.UserRepository;
-import org.assertj.core.api.Assertions;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -25,7 +24,7 @@ public class UserDeleteUnitTests {
         User user = mock(User.class);
         userRepository.save(user);
         userRepository.delete(user);
-        assertThat(userRepository.findAll().isEmpty());
+        assertThat(userRepository.findById(user.getId())).isEmpty();
     }
 
 }

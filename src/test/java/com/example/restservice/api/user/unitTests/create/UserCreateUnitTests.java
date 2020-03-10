@@ -15,6 +15,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.jws.soap.SOAPBinding;
+import javax.validation.ConstraintViolationException;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.AdditionalAnswers.returnsFirstArg;
@@ -26,7 +27,7 @@ import static org.mockito.Mockito.when;
 @DataJpaTest
 public class UserCreateUnitTests {
 
-    @Mock
+    @Autowired
     UserRepository userRepository;
 
     @Rule
