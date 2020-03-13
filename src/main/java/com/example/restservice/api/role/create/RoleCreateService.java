@@ -11,8 +11,11 @@ public class RoleCreateService {
     @Autowired
     private RoleRepository repository;
 
+    @Autowired
+    private RoleCreateMapper mapper;
+
     public RoleCreateResponse create(RoleCreateRequest request){
-        Role role = request.transformaParaObjeto();
+        Role role = mapper.fromRequestToRole(request);
         return new RoleCreateResponse(repository.save(role));
     }
 

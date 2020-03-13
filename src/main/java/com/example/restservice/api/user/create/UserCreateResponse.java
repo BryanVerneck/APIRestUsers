@@ -3,8 +3,10 @@ package com.example.restservice.api.user.create;
 import com.example.restservice.domain.user.User;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 public class UserCreateResponse {
 
     @ApiModelProperty(example = "1")

@@ -18,11 +18,12 @@ public class UserCreateService {
     @Autowired
     private RoleRepository roleRepository;
 
-    private UserCreateMapper userCreateMapper;
+    @Autowired
+    private UserCreateMapper mapper;
 
     public UserCreateResponse create(Long roleId, UserCreateRequest request) {
         Optional<Role> role = roleRepository.findById(roleId);
-        User user = request.transformaParaObjeto();
+        User user = mapper.fromRequestTouser(request);
         user.setRole(role.get());
         return new UserCreateResponse(userRepository.save(user));
     }

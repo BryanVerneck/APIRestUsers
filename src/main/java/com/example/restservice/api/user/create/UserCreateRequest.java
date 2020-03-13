@@ -1,15 +1,16 @@
 package com.example.restservice.api.user.create;
 
-import com.example.restservice.domain.user.User;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Data
-@Getter
+@AllArgsConstructor
+@NoArgsConstructor
 public class UserCreateRequest{
 
     @ApiModelProperty(example = "Test")
@@ -30,9 +31,5 @@ public class UserCreateRequest{
     @NotNull
     @ApiModelProperty(example = "Test@gmail.com")
     private String email;
-
-    public User transformaParaObjeto(){
-        return new User(null, userName, firstName, lastName, birthDate, email, null);
-    }
 
 }

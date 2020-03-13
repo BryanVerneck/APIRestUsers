@@ -17,4 +17,5 @@ public class RoleUpdateResponse {
         id = role.getId();
         name = role.getName();
     }
+
 }

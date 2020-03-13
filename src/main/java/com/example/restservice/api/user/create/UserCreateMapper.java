@@ -1,15 +1,11 @@
 package com.example.restservice.api.user.create;
 
 import com.example.restservice.domain.user.User;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.mapstruct.Mapper;
 
-public class UserCreateMapper {
+@Mapper(componentModel = "spring")
+public interface UserCreateMapper {
 
-    @Autowired
-    private UserCreateRequest user;
-
-    public User transformaParaObjeto(){
-        return new User(null, user.getUserName(), user.getFirstName(), user.getLastName(), user.getBirthDate(), user.getEmail(), null);
-    }
+    User fromRequestTouser(UserCreateRequest request);
 
 }
